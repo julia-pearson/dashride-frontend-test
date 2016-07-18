@@ -64,7 +64,9 @@ function BirthdayController($http) {
 
   birthday.getAge = function(){
     var currentDate = new Date();
-    if((currentDate.getMonth()+1) < birthday.date.month && currentDate.getDate() > birthday.date.day){
+    if(currentDate.getMonth()+1 < birthday.date.month){
+      birthday.age = currentDate.getFullYear() - birthday.date.year - 1;
+    }else if (currentDate.getMonth()+1 == birthday.date.month && currentDate.getDate() < birthday.date.day){
       birthday.age = currentDate.getFullYear() - birthday.date.year - 1;
     }
     else{
