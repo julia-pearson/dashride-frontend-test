@@ -1,6 +1,6 @@
 #Welcome to the Birthday Fact Generator App!
 
-! (./app/public/images/preview.png)
+[preview] (./app/public/images/preview.png)
 
 Enter any valid month/day into our input box, click "get fact", and receive a random fact from that day.
 
