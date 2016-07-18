@@ -1,4 +1,4 @@
-Welcome to the Birthday Fact Generator App!
+#Welcome to the Birthday Fact Generator App!
 
 [!] /app/public/images/preview.jpeg
 
