@@ -1,14 +1,14 @@
-# dashride-frontend-test
-Dashride's front-end interview coding challenge skeleton.
+Welcome to the Birthday Fact Generator App!
 
-*Based on [angular-seed](https://github.com/angular/angular-seed)*
+[!] /app/public/images/preview.jpeg
 
-------
+Enter any valid month/day into our input box, click "get fact", and receive a random fact from that day.
 
-## Instructions
-1. Fork this repository, then clone your forked copy and pull request your result when done.
-2. `npm install` the dependencies. This will install bower & npm dependencies.
-3. `npm start` to run the app.
-4. `npm test` to run the tests.
+If you enter the date in the wrong format, you will be notified.  
 
-For more information about the project structure, check out the [angular-seed README](https://github.com/angular/angular-seed/blob/master/README.md).
+Technologies used:
+NumbersAPI
+Angular
+Node
+Javascript
+Jasmine

@@ -1,0 +1,62 @@
+/* app css stylesheet */
+
+
+#page-container{
+  min-width: 600;
+  height: 100vh;
+  color: white;
+  background: rgb(99, 217, 217);
+  font-family: 'Ubuntu', sans-serif;
+}
+#content-container{
+  padding-top: 100px;
+  text-align: center;
+}
+#content-header{
+  margin: 0 auto;
+  padding-bottom: 50px;
+  font-size: 50px;
+}
+#birthday-form{
+
+}
+#birthday-entry{
+  width: 100px;
+  padding: 10px;
+  border-radius: 10px;
+  border-style: none;
+  font-size: 20px;
+  color: rgb(99, 217, 217);
+}
+
+#submit-button{
+  width: 120px;
+  padding: 7px;
+  border-radius: 10px;
+  border: solid white;
+  border-width: 1px;
+  font-size: 20px;
+  background: rgb(99, 217, 217);
+}
+
+.form-element{
+  display: inline;
+}
+
+#birthday-intro{
+  font-size: 25px;
+}
+
+#birthday-fact{
+  max-width: 60%;
+  min-height: 200px;
+  margin: 0 auto;
+  font-style: italic;
+  font-size: 30px
+}
+
+#loading-icon{
+  width: 100px;
+}
+
+
