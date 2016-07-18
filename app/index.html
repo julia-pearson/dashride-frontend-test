@@ -18,14 +18,14 @@
       <h1 id="content-header">Birthday Fact Generator</h1>
       <div id="birthday-form">
         <input type="string" name="birthday" id="birthday-entry" class="form-element" ng-model="birthday.entry" ng-click="birthday.clearFact()">
-        <button id="submit-button" class="form-element" ng-click="birthday.getFact()">Get Fact</button>
+        <button id="submit-button" class="form-element" ng-click="birthday.inquiry()">Get Fact</button>
       </div> <!-- birthday-form -->
-      <p id="birthday-intro">The fact for your birthday, {{birthday.entry}}, is:</p>
+      <p id="birthday-intro">Congrats on Making it {{birthday.age}} years! Here's a fun fact about the day you were born:</p>
       <p id="birthday-fact" ng-show="birthday.fact">"{{birthday.fact}}"</p>
       <img id="loading-icon" src="/public/images/loading.gif" ng-show="birthday.loading">
     </div> <!-- content-container -->
   </div> <!-- page-container -->
-  
+
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="/public/js/app.js"></script>

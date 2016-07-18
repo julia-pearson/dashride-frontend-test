@@ -10,16 +10,17 @@ describe('BirthdayController', function() {
   }));
 
   describe('birthday.checkDate', function() {
-    it('checks that input is formatted MM/DD and is valid date', function() {
+    it('checks that input is formatted MM/DD/YYYY and is valid date', function() {
       var birthday;
       var controller = $controller('BirthdayController', { birthday: birthday });
       
-      expect(birthday.checkDate('01/31')).toMatch(true);
-      expect(birthday.checkDate('12/31')).toMatch(true);
-      expect(birthday.checkDate('1/1')).toMatch(true);
-      expect(birthday.checkDate('22/05')).toMatch(false);
-      expect(birthday.checkDate('06/31')).toMatch(false);
+      expect(birthday.checkDate('01/31/1993')).toMatch(true);
+      expect(birthday.checkDate('12/31/2000')).toMatch(true);
+      expect(birthday.checkDate('1/1/1953')).toMatch(true);
+      expect(birthday.checkDate('22/05/2000')).toMatch(false);
+      expect(birthday.checkDate('06/31/2000')).toMatch(false);
       expect(birthday.checkDate('06/15/93')).toMatch(false);
+      expect(birthday.checkDate('06/15/1993/50')).toMatch(false);
       expect(birthday.checkDate('06')).toMatch(false);
     });
   });
@@ -46,28 +47,14 @@ describe('BirthdayController', function() {
   });
 
   describe('birthday.getFact', function(){
-    it('If fact was loading (fact = false), triggers loading toggle. If birthday entry is correct, it receives statusText "OK" from API, else it matches error message', function(){
+    it('If birthday entry is correct, it receives statusText "OK" from API', function(){
       var birthday;
       var controller = $controller('BirthdayController', { birthday: birthday });
- 
-      // If was loading, triggers loading toggle.
-      var originalToggleState = birthday.loading;
-      if(birthday.fact){
-        birthday.getFact();
-        expect(originalToggleState).toMatch(birthday.loading);
-      } else {
-        birthday.getFact();
-        expect(originalToggleState).toMatch(!birthday.loading);
-      }
 
       // If birthday entry is correct, it receives statusText "OK" from API, else fact matches error message'
-      birthday.entry = '07/04'; 
+      birthday.entry = '07/04/1993'; 
       birthday.getFact();
-      expect(statusCheck).toMatch('OK');
-        
-      birthday.entry = '20/04'; 
-      birthday.getFact(); 
-      expect(birthday.fact).toMatch("That is not a date, it cannot be your birthday, and you should try formating it MM/DD.");     
+      expect(statusCheck).toMatch('OK');    
 
     });
   });
@@ -83,5 +70,16 @@ describe('BirthdayController', function() {
       expect(originalToggleState).toMatch(!birthday.loading);
     });
   });
+
+  describe('birthday.getAge', function() {
+    it('sets user\'s age based on birthday, making sure to account for upcoming birthdays within the year', function() {
+      var birthday;
+      var controller = $controller('BirthdayController', { birthday: birthday });
+      
+      expect(birthday.getAge('01/31/1993')).toMatch(23);
+      expect(birthday.getAge('08/12/2000')).toMatch(15);
+
+    });
+  });  
 
 });
